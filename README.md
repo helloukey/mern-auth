@@ -3,7 +3,7 @@
 Simple MERN Stack Auth Project
 
 - Project Preview - **[HERE](https://ephemeral-lebkuchen-07412b.netlify.app/)**.
-- Video Preview - **[HERE]()**.
+- Video Preview - **[HERE](https://drive.google.com/file/d/1Z3gBGJYcIEIYmmFdPJhr4C2Q94Vfavd0/view?usp=share_link)**.
 
 ## Tech Stack
 
