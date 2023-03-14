@@ -47,10 +47,9 @@ const registerPOST = async (req, res, next) => {
     const token = createToken(user._id);
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
-      httpOnly: true, // for frontend
+      httpOnly: false, // for frontend
       domain: ".onrender.com",
-      sameSite: none,
-      secure: true
+      sameSite: "none",
     });
     res.status(201).json({ user: user._id });
   } catch (err) {
@@ -68,10 +67,9 @@ const loginPOST = async (req, res) => {
     const token = createToken(user._id);
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
-      httpOnly: true,
+      httpOnly: false,
       domain: ".onrender.com",
-      sameSite: none,
-      secure: true
+      sameSite: "none",
     });
     res.status(201).json({ user: user._id });
   } catch (err) {
