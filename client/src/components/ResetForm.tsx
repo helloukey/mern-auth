@@ -20,7 +20,7 @@ const ResetForm = (props: Props) => {
 
     // Register
     setLoading(true);
-    const endpoint = "http://localhost:8000/reset-password";
+    const endpoint = "https://mern-auth-backend-q1ev.onrender.com/reset-password";
     fetch(endpoint, {
       method: "POST",
       body: JSON.stringify({ firstName, lastName, email, password }),

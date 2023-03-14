@@ -19,7 +19,7 @@ const SignupForm = (props: Props) => {
 
     // Register
     setLoading(true);
-    const endpoint = "http://localhost:8000/register";
+    const endpoint = "https://mern-auth-backend-q1ev.onrender.com/register";
     fetch(endpoint, {
       method: "POST",
       body: JSON.stringify({ firstName, lastName, email, password }),

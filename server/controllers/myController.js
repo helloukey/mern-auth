@@ -49,7 +49,7 @@ const registerPOST = async (req, res, next) => {
       maxAge: 1000 * 60 * 60 * 24 * 3,
       httpOnly: true, // for frontend
       // secure: true,
-      domain: "localhost",
+      domain: "onrender.com",
       sameSite: "Lax",
     });
     res.status(201).json({ user: user._id });
@@ -70,7 +70,7 @@ const loginPOST = async (req, res) => {
       maxAge: 1000 * 60 * 60 * 24 * 3,
       httpOnly: true,
       // secure: true,
-      domain: "localhost",
+      domain: "onrender.com",
       sameSite: "Lax",
     });
     res.status(201).json({ user: user._id });

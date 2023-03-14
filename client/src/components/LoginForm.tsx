@@ -16,7 +16,7 @@ const LoginForm = (props: Props) => {
     e.preventDefault();
     // Login
     setLoading(true);
-    const endpoint = "http://localhost:8000/login";
+    const endpoint = "https://mern-auth-backend-q1ev.onrender.com/login";
     fetch(endpoint, {
       method: "POST",
       body: JSON.stringify({ email, password }),
