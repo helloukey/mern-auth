@@ -14,6 +14,8 @@ const LoginForm = (props: Props) => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    setError("");
+    
     // Login
     setLoading(true);
     const endpoint = "https://mern-auth-backend-q1ev.onrender.com/login";

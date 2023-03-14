@@ -16,6 +16,7 @@ const SignupForm = (props: Props) => {
 
   const handleSubmit = async (e: React.SyntheticEvent) => {
     e.preventDefault();
+    setError("");
 
     // Register
     setLoading(true);
