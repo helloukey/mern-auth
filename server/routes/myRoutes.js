@@ -3,6 +3,7 @@ const router = express.Router();
 const myController = require("../controllers/myController");
 const { requireAuth, pageAuth } = require("../middleware/authMiddleware");
 
+router.get("/", myController.checkGET)
 router.post("/register", myController.registerPOST)
 router.post("/login", myController.loginPOST)
 router.get("/check-user", myController.checkUserGET)

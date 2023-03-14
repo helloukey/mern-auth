@@ -39,6 +39,11 @@ const handleFormErrors = (err) => {
   return errors;
 };
 
+// Route Check
+const checkGET = (req, res) => {
+  res.status(201).json({success: "Backend working!"});
+}
+
 // Register POST request
 const registerPOST = async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
@@ -123,6 +128,7 @@ const resetPassword = async (req, res) => {
 
 
 module.exports = {
+  checkGET,
   registerPOST,
   loginPOST,
   checkUserGET,
