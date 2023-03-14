@@ -14,14 +14,17 @@ const Layout = ({ children }: Props) => {
     fetch("https://mern-auth-backend-q1ev.onrender.com/logout", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
-      credentials: "include"
-    }).then(res => res.json()).then(data => {
-      if(data.success) {
-        navigate("/login", {replace: true});
-        window.location.reload();
-      }
-    }).catch(err => console.log(err))
-  }
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          navigate("/login", { replace: true });
+          window.location.reload();
+        }
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -51,25 +54,27 @@ const Layout = ({ children }: Props) => {
             </Link>
             <div className="flex-none lg:block">
               <ul className="menu menu-horizontal">
-                <li>
-                  {/* Search */}
-                  <button onClick={() => setIsSearch(true)}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
-                    </svg>
-                  </button>
-                </li>
+                {authorized ? (
+                  <li>
+                    {/* Search */}
+                    <button onClick={() => setIsSearch(true)}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                        />
+                      </svg>
+                    </button>
+                  </li>
+                ) : null}
                 <li>
                   {/* Avatar */}
                   <div className="dropdown dropdown-left h-12 w-fit rounded-full p-0">
@@ -98,16 +103,22 @@ const Layout = ({ children }: Props) => {
                       tabIndex={0}
                       className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
                     >
-                      {authorized ? <li className="flex-col">
-                        <span>{firstName} {lastName}</span>
-                      </li> : null}
-                      {authorized ? <li className="flex-col">
-                        <span onClick={handleLogout}>Logout</span>
-                      </li> :
-                      <li>
-                        <Link to="/login">Login</Link>
-                      </li>
-                      }
+                      {authorized ? (
+                        <li className="flex-col">
+                          <span>
+                            {firstName} {lastName}
+                          </span>
+                        </li>
+                      ) : null}
+                      {authorized ? (
+                        <li className="flex-col">
+                          <span onClick={handleLogout}>Logout</span>
+                        </li>
+                      ) : (
+                        <li>
+                          <Link to="/login">Login</Link>
+                        </li>
+                      )}
                     </ul>
                   </div>
                 </li>
