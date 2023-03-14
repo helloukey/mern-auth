@@ -105,8 +105,9 @@ const checkUserGET = (req, res) => {
 };
 
 // Logout Action
-const logout = (req, res) => {
-  res.cookie("jwt", "", { maxAge: 1 });
+const logout = async (req, res) => {
+  // res.cookie("jwt", "", { maxAge: 1 });
+  await res.clearCookie("jwt");
   try {
     res.status(201).json({ success: true });
   } catch (error) {
