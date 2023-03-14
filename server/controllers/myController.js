@@ -48,7 +48,7 @@ const registerPOST = async (req, res, next) => {
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
       httpOnly: true, // for frontend
-      // secure: true,
+      secure: true,
       domain: "https://mern-auth-frontend.onrender.com",
       sameSite: "Lax",
     });
@@ -69,7 +69,7 @@ const loginPOST = async (req, res) => {
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
       httpOnly: true,
-      // secure: true,
+      secure: true,
       domain: "https://mern-auth-frontend.onrender.com",
       sameSite: "Lax",
     });
