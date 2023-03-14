@@ -35,7 +35,7 @@ Download or Clone this project and run this command in root folder.
 - Now, run **`npm run start-server`** to start the backend server locally.
 - Open new terminal, and run this command **`npm run install-client`** to install all the required dependencies for the frontend.
 - Now, run **`npm run start-client`** to start the frontend server locally.
-- Go inside the server folder, and edit the **.env_sample** file.
+- Go inside the server folder, and rename the **.env_sample** file to **.env** and edit all the fields inside it.
 - It is recommended to use nodemon in the development mode.
 
 ## License
