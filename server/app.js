@@ -9,7 +9,7 @@ require("dotenv").config();
 // middleware
 const corsConfig = {
   credentials: true,
-  origin: "*",
+  origin: "https://mern-auth-frontend.onrender.com",
 };
 app.use(cors(corsConfig));
 app.use(express.json());
