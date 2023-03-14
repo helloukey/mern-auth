@@ -41,8 +41,8 @@ const handleFormErrors = (err) => {
 
 // Route Check
 const checkGET = (req, res) => {
-  res.status(201).json({success: "Backend working!"});
-}
+  res.status(201).json({ success: "Backend working!" });
+};
 
 // Register POST request
 const registerPOST = async (req, res, next) => {
@@ -53,7 +53,7 @@ const registerPOST = async (req, res, next) => {
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
       sameSite: "none",
-      secure: true
+      secure: true,
     });
     res.status(201).json({ user: user._id });
   } catch (err) {
@@ -71,7 +71,7 @@ const loginPOST = async (req, res) => {
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
       sameSite: "none",
-      secure: true
+      secure: true,
     });
     res.status(201).json({ user: user._id });
   } catch (err) {
@@ -89,13 +89,11 @@ const checkUserGET = (req, res) => {
         if (err) {
           res.status(201).json({ authorized: false });
         } else {
-          res
-            .status(201)
-            .json({
-              authorized: true,
-              firstName: user.firstName,
-              lastName: user.lastName,
-            });
+          res.status(201).json({
+            authorized: true,
+            firstName: user.firstName,
+            lastName: user.lastName,
+          });
         }
       });
     });
@@ -106,7 +104,7 @@ const checkUserGET = (req, res) => {
 
 // Logout Action
 const logout = async (req, res) => {
-  res.cookie("jwt", "", { maxAge: 1 });
+  res.cookie("jwt", "", { maxAge: 1, sameSite: "none", secure: true });
   try {
     res.status(201).json({ success: true });
   } catch (error) {
@@ -118,14 +116,16 @@ const logout = async (req, res) => {
 const resetPassword = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
   try {
-    const user = await User.findOne({ firstName, lastName, email }, { password });
+    const user = await User.findOne(
+      { firstName, lastName, email },
+      { password }
+    );
     await user.save();
     res.status(201).json({ user: user._id });
   } catch (err) {
-    res.status(400).json({error: "Invalid credentials."});
+    res.status(400).json({ error: "Invalid credentials." });
   }
-}
-
+};
 
 module.exports = {
   checkGET,
@@ -133,5 +133,5 @@ module.exports = {
   loginPOST,
   checkUserGET,
   logout,
-  resetPassword
+  resetPassword,
 };
