@@ -11,7 +11,7 @@ const Layout = ({ children }: Props) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    fetch("http://localhost:8000/logout", {
+    fetch("https://mern-auth-backend-q1ev.onrender.com/logout", {
       method: "GET",
       headers: { "Content-Type": "application/json" },
       credentials: "include"

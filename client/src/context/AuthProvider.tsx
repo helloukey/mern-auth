@@ -57,7 +57,7 @@ const AuthProvider = ({ children }: Props) => {
 
   useEffect(() => {
     dispatch({ type: "SET_LOADING", payload: true });
-    fetch("http://localhost:8000/check-user", {
+    fetch("https://mern-auth-backend-q1ev.onrender.com/check-user", {
       headers: { "Content-Type": "application/json" },
       credentials: "include",
     })
