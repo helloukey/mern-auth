@@ -8,8 +8,8 @@ require("dotenv").config();
 
 // middleware
 const corsConfig = {
+  origin: "https://ephemeral-lebkuchen-07412b.netlify.app",
   credentials: true,
-  origin: "https://mern-auth-frontend.onrender.com",
 };
 app.use(cors(corsConfig));
 app.use(express.json());

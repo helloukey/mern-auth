@@ -47,9 +47,8 @@ const registerPOST = async (req, res, next) => {
     const token = createToken(user._id);
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
-      httpOnly: true,
       domain: ".onrender.com",
-      sameSite: "None",
+      sameSite: "none",
       secure: true
     });
     res.status(201).json({ user: user._id });
@@ -67,9 +66,8 @@ const loginPOST = async (req, res) => {
     const token = createToken(user._id);
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
-      httpOnly: true,
       domain: ".onrender.com",
-      sameSite: "None",
+      sameSite: "none",
       secure: true
     });
     res.status(201).json({ user: user._id });
