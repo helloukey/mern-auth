@@ -47,15 +47,15 @@ const registerPOST = async (req, res, next) => {
     const token = createToken(user._id);
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
-      httpOnly: false,
-      // domain: ".onrender.com",
-      // sameSite: "none",
+      httpOnly: true,
+      domain: ".onrender.com",
+      sameSite: "None",
+      secure: true
     });
     res.status(201).json({ user: user._id });
   } catch (err) {
     const errors = handleFormErrors(err);
     res.status(400).json({ errors });
-    // console.log({errors});
   }
 };
 
@@ -67,15 +67,15 @@ const loginPOST = async (req, res) => {
     const token = createToken(user._id);
     res.cookie("jwt", token, {
       maxAge: 1000 * 60 * 60 * 24 * 3,
-      httpOnly: false,
-      // domain: ".onrender.com",
-      // sameSite: "none",
+      httpOnly: true,
+      domain: ".onrender.com",
+      sameSite: "None",
+      secure: true
     });
     res.status(201).json({ user: user._id });
   } catch (err) {
     const errors = handleFormErrors(err);
     res.status(400).json({ errors });
-    // console.log({ errors });
   }
 };
 
